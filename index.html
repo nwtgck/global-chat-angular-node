@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="CHAT">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+	<script src="./app.js"></script>
+</head>
+<body>
+	<style>
+		body{
+			color: #535353;
+		}
+
+		.me{
+			text-align: right;
+		}
+		.draft{
+			color: #bbb;
+		}
+	</style>
+
+	<div ng-controller='talkCtrl'>
+		<!-- ユーザー名とトークの入力欄 -->
+		<form>
+			<input type="text" ng-model="talker" placeholder="なまえ" ng-readonly="!changeNamable">
+			<input type="text" ng-model='talk' ng-keyup="writing()">
+			<button ng-click="add()">送信</button>
+		</form>
+		<!-- 下書きの表示 -->
+		<div class="draft">
+			<div ng-repeat="d in drafts | orderBy:'time':true">
+				<b>{{d.talker}}</b> (書き中...)<br> 「{{d.content}}」
+			</div>
+		</div>
+
+		<!-- トークの表示 -->
+		<div>
+			<div ng-repeat="t in talks | orderBy:'time':true" ng-class="{me: (t.talker == talker)}">
+				<span ng-hide="t.talker == talker"><b>{{t.talker}}</b><br></span> 「{{t.content}}」
+			</div>
+		</div>
+	</div>
+	<script>
+
+	</script>
+</body>
+</html>
