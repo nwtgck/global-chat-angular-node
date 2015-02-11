@@ -1,10 +1,29 @@
 var socket = io.connect();
+// var talks = [];
 
-angular.module('CHAT', []).
-	controller('talkCtrl', ['$scope', function($scope){
-		$scope.taler = "";
+// socket.on('init', function(data){
+// 	talks = data.talks;
+// 	console.log(data, angular.$apply);
+// });
+
+angular.module('CHAT', ['ngCookies']).
+
+	run(['$rootScope', function($rootScope){
+
+		// talksをrootScopeで定義している
+		$rootScope.talks = [];
+
+		socket.on('init', function(data){
+			$rootScope.$apply(function(){
+				$rootScope.talks = data.talks;
+			})
+		});
+	}]).
+
+	controller('talkCtrl', ['$scope', '$cookies', function($scope, $cookies){
+		/* 注意 talksは$rootScope.talksにあります */
+		$scope.talker = $cookies.talker || "";
 		$scope.talk = "";
-		$scope.talks = [];
 		$scope.drafts = [];
 		$scope.changeNamable = true;
 		var before = "";
@@ -27,8 +46,6 @@ angular.module('CHAT', []).
 
 		// 下書きがあるとき
 		socket.on('draft', function(talk){
-			console.log("d", talk);
-
 			// 自分の下書きは表示しない
 			if(talk.talker == $scope.talker) return;
 			
@@ -71,8 +88,10 @@ angular.module('CHAT', []).
 		$scope.writing = function(){
 			if(isWriting()){
 				// 一度書くと名前は変更できないようにする
-				$scope.changeNamable = false;
-				console.log($scope.talk);
+				if($scope.changeNamable){
+					$scope.changeNamable = false;
+					$cookies.talker = $scope.talker;
+				}
 				socket.emit('writing', {
 					content: $scope.talk,
 					talker : $scope.talker
@@ -86,4 +105,6 @@ angular.module('CHAT', []).
 			before = $scope.talk;
 			return f;
 		}
+
+
 	}]);
