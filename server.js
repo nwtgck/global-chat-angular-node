@@ -2,9 +2,11 @@ var fs = require('fs');
 var app = require('http').createServer(function(req, res){
 	// どんなファイルに対してもtext/htmlはまずい気がする
 	res.writeHead('Content-Type', 'text/html');
+	console.log(req.url);
 	// urlに応じてファイルを読み込んむ
 	try{
-		var file = fs.readFileSync(__dirname + req.url);
+		var filename = (req.url == '/')? '/index.html' : req.url;
+		var file = fs.readFileSync(__dirname + filename);
 	} catch(e){
 		console.log(req.url + "file not found");
 		res.end("404 not found");
@@ -13,6 +15,7 @@ var app = require('http').createServer(function(req, res){
 	res.write(file);
 	res.end();
 }).listen(3000);
+
 var io = require('socket.io').listen(app);
 
 // 投稿されているトークを保存（サーバーが動いている間だけ）
@@ -40,3 +43,5 @@ io.sockets.on('connection', function(socket){
 		io.sockets.emit('draft', talk);
 	});
 });
+
+console.log("Server running...");
