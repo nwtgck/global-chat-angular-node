@@ -1,8 +1,18 @@
-# Realtme-Chat-by-Node.js-x-AngularJS
-This is a chat using Node.js and AngularJS. This looks like LINE or facebook Messanger, but is is more simple.
+# Global chat web server
 
-1.
-  type "node server.js" into terminal
+Global means one big room or group.
 
-2.
-  access to localhost:3000/index.html
+## Main features
+
+* Client Side: [AngularJS](https://angularjs.org/)
+* Server Side: [Node.js](https://angularjs.org/)
+
+## Usage
+
+```bash
+cd <this repo>
+npm install
+node server.js
+```
+
+Then you can access to http://localhost:3000
