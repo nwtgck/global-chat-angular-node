@@ -1,7 +1,7 @@
 var fs = require('fs');
 var app = require('http').createServer(function(req, res){
 	// どんなファイルに対してもtext/htmlはまずい気がする
-	res.writeHead('Content-Type', 'text/html');
+	// res.writeHead('Content-Type', 'text/html');
 	console.log(req.url);
 	// urlに応じてファイルを読み込んむ
 	try{

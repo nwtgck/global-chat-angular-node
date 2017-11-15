@@ -1,0 +1,24 @@
+{
+  "name": "realtme-chat-by-node.js-x-angularjs",
+  "version": "1.0.0",
+  "description": "This is a chat using Node.js and AngularJS. This looks like LINE or facebook Messanger, but is is more simple.",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "socket.io": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwtgck/Realtme-Chat-by-Node.js-x-AngularJS.git"
+  },
+  "author": "Ryo Ota",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nwtgck/Realtme-Chat-by-Node.js-x-AngularJS/issues"
+  },
+  "homepage": "https://github.com/nwtgck/Realtme-Chat-by-Node.js-x-AngularJS#readme"
+}
