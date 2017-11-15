@@ -40,14 +40,14 @@
 	<div ng-controller='talkCtrl'>
 		<!-- ユーザー名とトークの入力欄 -->
 		<form>
-			<input type="text" ng-model="talker" placeholder="なまえ" ng-readonly="!changeNamable">
+			<input type="text" ng-model="talker" placeholder="Name" ng-readonly="!changeNamable">
 			<input type="text" ng-model='talk' ng-keyup="writing()">
-			<button ng-click="add()">送信</button>
+			<button ng-click="add()">Send</button>
 		</form>
 		<!-- 下書きの表示 -->
 		<div class="draft">
 			<div ng-repeat="d in drafts | orderBy:'time':true">
-				<b>{{d.talker}}</b> (書き中...)<br> 「{{d.content}}...」
+				<b>{{d.talker}}</b> (Writing...)<br> 「{{d.content}}...」
 			</div>
 		</div>
 
