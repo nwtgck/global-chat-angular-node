@@ -4,6 +4,8 @@ Global means one big room or group.
 
 ## Main features
 
+* Very simple
+* [Socket.IO](https://socket.io/)
 * Client Side: [AngularJS](https://angularjs.org/)
 * Server Side: [Node.js](https://angularjs.org/)
 
