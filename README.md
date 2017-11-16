@@ -16,3 +16,8 @@ node server.js
 ```
 
 Then you can access to http://localhost:3000
+
+
+## Try on Heroku
+
+https://global-chat-angular-node.herokuapp.com/
