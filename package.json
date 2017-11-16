@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This is a chat using Node.js and AngularJS. This looks like LINE or facebook Messanger, but is is more simple.",
   "main": "app.js",
-  "dependencies": {},
+  "dependencies": {
+    "socket.io": "^2.0.4"
+  },
   "devDependencies": {
     "socket.io": "^2.0.4"
   },
