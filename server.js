@@ -1,4 +1,10 @@
 var fs = require('fs');
+
+var port = 3000;
+if(process.argv.length == 3){
+	port = parseInt(process.argv[2]);
+}
+
 var app = require('http').createServer(function(req, res){
 	// どんなファイルに対してもtext/htmlはまずい気がする
 	// res.writeHead('Content-Type', 'text/html');
@@ -14,7 +20,9 @@ var app = require('http').createServer(function(req, res){
 	}
 	res.write(file);
 	res.end();
-}).listen(3000);
+}).listen(port, function(){
+	console.log('Listening on '+port+'...');
+});
 
 var io = require('socket.io').listen(app);
 
