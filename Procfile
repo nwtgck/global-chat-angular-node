@@ -1,1 +1,1 @@
-web: node server.js $PORT
+web: npm install && node server.js $PORT
