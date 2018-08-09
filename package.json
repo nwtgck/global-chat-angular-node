@@ -1,10 +1,10 @@
 {
-  "name": "realtme-chat-by-node.js-x-angularjs",
+  "name": "global-chat",
   "version": "1.0.0",
-  "description": "This is a chat using Node.js and AngularJS. This looks like LINE or facebook Messanger, but is is more simple.",
+  "description": "A global chat using Node.js and AngularJS. This looks like LINE or facebook Messenger, but is is much more simple.",
   "main": "app.js",
   "dependencies": {
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nwtgck/Realtme-Chat-by-Node.js-x-AngularJS.git"
+    "url": "git+https://github.com/nwtgck/global-chat-angular-node.git"
   },
   "author": "Ryo Ota",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nwtgck/Realtme-Chat-by-Node.js-x-AngularJS/issues"
+    "url": "https://github.com/nwtgck/global-chat-angular-node/issues"
   },
-  "homepage": "https://github.com/nwtgck/Realtme-Chat-by-Node.js-x-AngularJS#readme"
+  "homepage": "https://github.com/nwtgck/global-chat-angular-node#readme"
 }
