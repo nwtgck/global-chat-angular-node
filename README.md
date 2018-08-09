@@ -1,6 +1,8 @@
-# Global chat web server
+# Global Chat
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-Global means one big room or group.
+A global chat using Node.js and AngularJS. It looks like LINE or facebook Messenger, much more simple.  
+"Global" means one big room or group.
 
 ## Main features
 
