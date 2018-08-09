@@ -1,0 +1,6 @@
+{
+  "name": "Global Chat",
+  "description": "A global chat using Node.js and AngularJS",
+  "repository": "https://github.com/nwtgck/global-chat-angular-node",
+  "keywords": ["node", "socket.io", "angularjs", "chat"]
+}
