@@ -1,5 +1,5 @@
 # Global Chat
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) [![Greenkeeper badge](https://badges.greenkeeper.io/nwtgck/global-chat-angular-node.svg)](https://greenkeeper.io/)
 
 A global chat using Node.js and AngularJS. It looks like LINE or facebook Messenger, much more simple.  
 "Global" means one big room or group.
