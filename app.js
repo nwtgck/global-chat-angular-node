@@ -10,7 +10,7 @@ angular.module('CHAT', ['ngCookies']).
 
 	run(['$rootScope', function($rootScope){
 
-		// talksをrootScopeで定義している
+		// Define talks on $rootScope
 		$rootScope.talks = [];
 
 		socket.on('init', function(data){
@@ -21,7 +21,7 @@ angular.module('CHAT', ['ngCookies']).
 	}]).
 
 	controller('talkCtrl', ['$scope', '$cookies', function($scope, $cookies){
-		/* 注意 talksは$rootScope.talksにあります */
+		/* NOTE: talks is defined in $rootScope */
 		$scope.talker = $cookies.talker || "";
 		$scope.talk = "";
 		$scope.drafts = [];
@@ -34,7 +34,7 @@ angular.module('CHAT', ['ngCookies']).
 				$scope.talks.push(talk);
 			});
 
-			// 下書きがある場合は削除する
+			// Remove drafts if they exist
 			for(var i = 0; i < $scope.drafts.length; i++){
 				if($scope.drafts[i].talker == talk.talker){
 					$scope.$apply(function(){
@@ -44,29 +44,29 @@ angular.module('CHAT', ['ngCookies']).
 			}
 		});
 
-		// 下書きがあるとき
+		// If drafts exist
 		socket.on('draft', function(talk){
-			// 自分の下書きは表示しない
+			// Don't show my own draft
 			if(talk.talker == $scope.talker) return;
 			
-			// すでに下書きしているtalkerなら、変更や削除
+			// If a talker is a talker who has drafted, modify or delete
 			for(var i = 0; i < $scope.drafts.length; i++){
 				if($scope.drafts[i].talker == talk.talker){
 					if(talk.content == ""){
 						$scope.$apply(function(){
-							// 削除
+							// Delete
 							$scope.drafts.splice(i, 1);
 						});
 					} else {
 						$scope.$apply(function(){
-							// 変更
+							// Modify
 							$scope.drafts[i] = talk;
 						});
 					}
 					return;
 				}
 			}
-			// まだ、存在してないtalkerなら追加
+			// Add a talk if a talker has not existed yet
 			if(talk.content != ""){
 				$scope.$apply(function(){
 					$scope.drafts.push(talk);
@@ -84,10 +84,10 @@ angular.module('CHAT', ['ngCookies']).
 			$scope.talk = "";
 		}
 
-		// 書いている時に何度も呼ばれる関数
+		// A function which is called when writing
 		$scope.writing = function(){
 			if(isWriting()){
-				// 一度書くと名前は変更できないようにする
+				// Fix name when the user writes once
 				if($scope.changeNamable){
 					$scope.changeNamable = false;
 					$cookies.talker = $scope.talker;
@@ -99,7 +99,7 @@ angular.module('CHAT', ['ngCookies']).
 			}
 		}
 
-		// 書き途中
+		// When writing
 		function isWriting(){
 			var f = before != $scope.talk;
 			before = $scope.talk;
