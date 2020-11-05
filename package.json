@@ -4,7 +4,7 @@
   "description": "A global chat using Node.js and AngularJS. This looks like LINE or facebook Messenger, but is is much more simple.",
   "main": "app.js",
   "dependencies": {
-    "socket.io": "^2.1.1"
+    "socket.io": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {
